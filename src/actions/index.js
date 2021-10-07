@@ -3,12 +3,9 @@ import axios from "axios";
 const API_KEY = "9e4a0d3fe2mshd2e06bf87625038p1eca84jsn219ebdae1689"
 
 const api = axios.create({
-    baseURL: "https://api.deezer.com/",
+    baseURL: "https://deezerdevs-deezer.p.rapidapi.com",
     timeout: 30000,
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-        "access-control-allow-methods": 'GET, PUT, POST, DELETE, PATCH, OPITIONS'
-    }
+    headers: {'x-rapidapi-key': API_KEY}
 });
 
 function getRank(search){
@@ -19,7 +16,7 @@ function getRank(search){
     return rank
 }
 
- function getAlbums(search = 'eminem'){
+ function getAlbums(search){
     const albums = api.get(`search?q=${search}`)
     .then(response => response.data.data)
     .catch(error => console.log(error));
