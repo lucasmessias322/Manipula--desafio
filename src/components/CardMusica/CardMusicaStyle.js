@@ -51,7 +51,7 @@ const CardMusicaStyle = styled.div`
     justify-content: space-between;
     padding: 10px;
 
-    div.circle {
+    .circle {
       border: 5px solid rgba(34, 31, 46, 0.87);
       width: 40px;
       height: 40px;
@@ -72,6 +72,10 @@ const CardMusicaStyle = styled.div`
       &:hover {
         transform: scale(1.1);
       }
+    }
+
+    .buttons-rigth{
+      display: flex;
     }
   }
 

@@ -1,30 +1,31 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import CardMusicaContainer from '../../components/CardMusicaContainer'
 import CardMusica from '../../components/CardMusica';
 import HeaderComponent from '../../components/Header'
 import axios from "axios";
-import {getAlbums, getRank} from "../../actions"
+import { getAlbums, getRank } from "../../actions"
 
 
 function Home() {
     const [albums, setAlbums] = useState([])
 
-    function handleSortByRank(a, b){
-        if(a.rank >= b.rank){
-              return 1
+    function handleSortByRank(a, b) {
+        if (a.rank >= b.rank) {
+            return 1
         }
 
-        if(a.rank <= b.rank){
-           return -1
+        if (a.rank <= b.rank) {
+            return -1
         }
 
         return 0
-      
+
     };
 
     useEffect(() => {
-        // getRank(0).then(item => console.log(item))
-        getAlbums().then(item => setAlbums(item))
+        // getAlbums().then(item => setAlbums(item))
+        getRank().then(item => setAlbums(item))
+
     }, []);
 
     function renderAlbums() {
@@ -36,6 +37,7 @@ function Home() {
                     Duration={item.duration}
                     albumImage={item.album.cover_big}
                     PreviewSongAlbum={item.preview}
+                    listenToFullMusic={item.link}
                     Rank={item.rank}
                 />
             )) : null;
@@ -49,7 +51,7 @@ function Home() {
         })
     }
 
-    console.log(albums);
+    // console.log(albums);
     return (
         <div >
             <HeaderComponent
@@ -58,9 +60,9 @@ function Home() {
             />
 
             <CardMusicaContainer
-                // renderAlbums={renderAlbums}
-                // albums={albums}
-                // setAlbums={setAlbums}
+            // renderAlbums={renderAlbums}
+            // albums={albums}
+            // setAlbums={setAlbums}
             >
                 {renderAlbums()}
             </CardMusicaContainer>
