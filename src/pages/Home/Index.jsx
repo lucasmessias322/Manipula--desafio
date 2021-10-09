@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CardMusicaContainer from '../../components/CardMusicaContainer'
 import CardMusica from '../../components/CardMusica';
 import HeaderComponent from '../../components/Header'
+
 import axios from "axios";
 import { getAlbums, getRank } from "../../actions"
 
@@ -31,15 +32,20 @@ function Home() {
     function renderAlbums() {
         return albums && albums.length ?
             albums.map((item, index) => (
-                <CardMusica
-                    AlbumName={item.title_short}
-                    Author={item.artist.name}
-                    Duration={item.duration}
-                    albumImage={item.album.cover_big}
-                    PreviewSongAlbum={item.preview}
-                    listenToFullMusic={item.link}
-                    Rank={item.rank}
-                />
+               
+
+                    <CardMusica
+                        AlbumName={item.title_short}
+                        Author={item.artist.name}
+                        Duration={item.duration}
+                        albumImage={item.album.cover_big}
+                        PreviewSongAlbum={item.preview}
+                        listenToFullMusic={item.link}
+                        Rank={item.rank}
+                        to={`/details/${item.album.id}`}
+                    />
+               
+
             )) : null;
     }
 
@@ -51,7 +57,7 @@ function Home() {
         })
     }
 
-    // console.log(albums);
+    console.log(albums);
     return (
         <div >
             <HeaderComponent

@@ -9,7 +9,7 @@ import GobalStyles from "./GlobalStyle/GlobalStyles";
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/details" component={DetailsAlbum} />
+                <Route exact path="/details/:id" component={DetailsAlbum} />
 
 
             </Switch>
