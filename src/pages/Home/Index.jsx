@@ -35,13 +35,12 @@ function Home() {
                
 
                     <CardMusica
-                        AlbumName={item.title_short}
+                        AlbumName={item.album.title}
                         Author={item.artist.name}
                         Duration={item.duration}
                         albumImage={item.album.cover_big}
                         PreviewSongAlbum={item.preview}
                         listenToFullMusic={item.link}
-                        Rank={item.rank}
                         to={`/details/${item.album.id}`}
                     />
                

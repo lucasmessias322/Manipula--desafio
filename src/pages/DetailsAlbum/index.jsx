@@ -26,15 +26,7 @@ function DetailsAlbum({ match }) {
 
 
 
-    console.log(dataAlbum.tracks);
-
-    // function renderTracks() {
-    //     return (dataAlbum.tracks && dataAlbum.tracks.length ?
-    //         dataAlbum.tracks.map((track, index) => {
-    //             <ItemListMusic Indice={index} MusicName={track.title} />
-    //         })
-    //         : null);
-    // }
+    console.log(dataAlbum.album);
 
     function renderAlbum() {
         return (
@@ -43,6 +35,7 @@ function DetailsAlbum({ match }) {
                 ArtistName={dataAlbum.album.artist == undefined ? "undefined" : dataAlbum.album.artist.name}
                 ArtistFans={dataAlbum.album.fans}
                 ArtistMusics={""}
+                DataCreationAlbum={dataAlbum.album.release_date}
             />
         )
     }
@@ -58,7 +51,11 @@ function DetailsAlbum({ match }) {
                     {/* <ItemListMusic Indice={1} MusicName={"nome da musica"} /> */}
                     {
                         dataAlbum.tracks?.map((track, index) =>
-                            <ItemListMusic Song={track.preview} listenToFullMusic={track.link} key={index} Indice={index} MusicName={track.title} />
+                            <ItemListMusic 
+                            Song={track.preview} 
+                            listenToFullMusic={track.link} 
+                            key={index} Indice={index} 
+                            MusicName={track.title_short} />
                         )
                     }
                 </MusicList>

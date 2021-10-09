@@ -1,7 +1,7 @@
 import React from 'react'
 import ArtistInfoStyle  from "./style"
 
-function ArtistInfo({ ArtistImage, ArtistName, ArtistFans, ArtistMusics}) {
+function ArtistInfo({ ArtistImage, ArtistName, ArtistFans, ArtistMusics, DataCreationAlbum}) {
     
     return (
         <ArtistInfoStyle >
@@ -10,6 +10,7 @@ function ArtistInfo({ ArtistImage, ArtistName, ArtistFans, ArtistMusics}) {
                 <h3>{ArtistName}</h3>
                 <h4>{ArtistFans} fãs</h4>
                 <h4>Musicas: {ArtistMusics}</h4>
+                <h4>Data de criação: {DataCreationAlbum}</h4>
             </div>
         </ArtistInfoStyle>
     )

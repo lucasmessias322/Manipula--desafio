@@ -21,6 +21,15 @@ function getRank(search) {
   return rank;
 }
 
+function getRankTest(search) {
+  const rank = api
+    .get(`playlist/1001939451`)
+    .then((response) => response.data.tracks.data)
+    .catch((error) => console.log(error));
+
+  return rank;
+}
+
 function getAlbums(search) {
   const albums = api
     .get(`search?q=${search}`)
